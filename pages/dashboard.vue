@@ -1,35 +1,24 @@
 <template>
-  <div>
-    <h2>Current Data</h2>
+	<div>
 		<!-- DATA DISPLAY -->
-		<dl
-			class="mx-auto grid grid-cols-1 gap-px bg-gray-900/5 sm:grid-cols-2 lg:grid-cols-4"
-		>
+
+		<h3 class="text-base font-semibold leading-6 text-gray-900">Latest Data</h3>
+		<dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
 			<div
-				v-for="stat in stats"
-				:key="stat.name"
-				class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-10 sm:px-6 xl:px-8"
+				v-for="item in stats"
+				:key="item.name"
+				class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6"
+        :class="item.color"
 			>
-				<dt class="text-sm font-medium leading-6 text-gray-500">
-					{{ stat.name }}
+				<dt class="truncate text-sm font-medium text-gray-500">
+					{{ item.name }}
 				</dt>
-				<dd
-					:class="[
-						stat.changeType === 'negative' ? 'text-rose-600' : 'text-gray-700',
-						'text-xs font-medium',
-					]"
-				>
-					<!-- {{ stat.change }} -->
-				</dd>
-				<dd
-					class="w-full flex-none text-3xl font-medium leading-10 tracking-tight text-gray-900"
-				>
-					{{ stat.value }}
+				<dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
+					{{ item.stat }}
 				</dd>
 			</div>
 		</dl>
 
-		<hr />
 		<br />
 		<!-- HISTORY -->
 		<h2>Recent History</h2>
@@ -81,34 +70,19 @@
 
 <script setup>
 const stats = [
-	{
-		name: "Available Points",
-		value: "300",
-		change: "+1.39%",
-		changeType: "positive",
-	},
-	{
-		name: "Points Spent",
-		value: "30",
-		change: "+4.75%",
-		changeType: "positive",
-	},
-	{
-		name: "Garbage Submitted",
-		value: "50",
-		change: "+54.02%",
-		changeType: "negative",
-	},
-
-	{
-		name: "Expenses",
-		value: "$30,156.00",
-		change: "+10.18%",
-		changeType: "negative",
-	},
+	{ name: "Current Coins", stat: "7,897", color: "bg-blue-300" },
+	{ name: "Total Coins Earned", stat: "516", color: "bg-orange-300" },
+	{ name: "Garbage Collected", stat: "240 pieces", color: "bg-green-300" },
 ];
 
-import { CheckIcon, HandThumbUpIcon, UserIcon, PlusIcon, MinusIcon } from "@heroicons/vue/20/solid";
+import {
+	CheckIcon,
+	HandThumbUpIcon,
+	UserIcon,
+	PlusIcon,
+	MinusIcon,
+	ShoppingCartIcon,
+} from "@heroicons/vue/20/solid";
 
 const timeline = [
 	{
@@ -128,8 +102,8 @@ const timeline = [
 		href: "#",
 		date: "Oct 4",
 		datetime: "2020-10-04",
-		icon: MinusIcon,
-		iconBackground: "bg-yellow-400",
+		icon: ShoppingCartIcon,
+		iconBackground: "bg-purple-500",
 	},
 	{
 		id: 4,
