@@ -1,8 +1,14 @@
 <template>
 	<div>
+		<div class="py-24 text-center">
+			<h1 class="text-4xl font-bold tracking-tight text-gray-900">
+				Use your coins!
+			</h1>
+			<p class="mx-auto mt-4 max-w-3xl text-base text-gray-500">
+				Congratulations on your coins ⦵. Now use it to get some cool stuff!
+			</p>
+		</div>
 		<section aria-labelledby="products-heading" class="mt-8">
-			<h2 id="products-heading" class="sr-only">Products</h2>
-
 			<div
 				class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8"
 			>
@@ -18,7 +24,7 @@
 						<img
 							:src="product.imageSrc"
 							:alt="product.imageAlt"
-							class="h-full w-full object-cover object-center group-hover:opacity-75"
+							class="h-80 w-full object-cover object-center group-hover:opacity-75"
 						/>
 					</div>
 					<div
@@ -92,7 +98,7 @@
 						class="mt-4 flex items-center justify-between text-base font-medium text-gray-900"
 					>
 						<h3>{{ product.name }}</h3>
-						<p>{{ product.price }}</p>
+						<p>⦵ {{ product.price }}</p>
 					</div>
 					<p class="mt-1 text-sm italic text-gray-500">
 						{{ product.description }}
@@ -276,33 +282,32 @@ const filters = [
 const products1 = [
 	{
 		id: 1,
-		name: "Focus Paper Refill",
+		name: "20% off your next coffee",
 		href: "#",
 		price: "13",
-		description: "3 sizes available",
+		description: "Starbucks",
 		imageSrc:
-			"https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-01.jpg",
-		imageAlt:
-			"Person using a pen to cross a task off a productivity paper card.",
+			"https://seeklogo.com/images/S/STARBUCKS-logo-1C7F61A348-seeklogo.com.png",
+		imageAlt: "",
 	},
 	{
 		id: 2,
-		name: "Focus Card Holder",
+		name: "Free Coffee",
 		href: "#",
 		price: "64",
-		description: "Walnut",
+		description: "Tim Hortons",
 		imageSrc:
-			"https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-02.jpg",
-		imageAlt: "Paper card sitting upright in walnut card holder on desk.",
+			"https://seeklogo.com/images/T/Tim_Hortons-logo-C043823AE9-seeklogo.com.png",
+		imageAlt: "",
 	},
 	{
 		id: 3,
 		name: "Focus Carry Pouch",
 		href: "#",
 		price: "32",
-		description: "Heather Gray",
+		description: "McDonalds",
 		imageSrc:
-			"https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-03.jpg",
+			"https://seeklogo.com/images/M/mcdonald-s-logo-255A7B5646-seeklogo.com.png",
 		imageAlt:
 			"Textured gray felt pouch for paper cards with snap button flap and elastic pen holder loop.",
 	},
@@ -314,9 +319,9 @@ const products2 = [
 		name: "Electric Kettle",
 		href: "#",
 		price: "149",
-		description: "Black",
+		description: "Sephora",
 		imageSrc:
-			"https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-07.jpg",
+			"https://seeklogo.com/images/B/Best_Buy-logo-742C14FC5E-seeklogo.com.png",
 		imageAlt:
 			"Close up of long kettle spout pouring boiling water into pour-over coffee mug with frothy coffee.",
 	},
@@ -325,9 +330,9 @@ const products2 = [
 		name: "Leather Workspace Pad",
 		href: "#",
 		price: "165",
-		description: "Black",
+		description: "Walmart",
 		imageSrc:
-			"https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-08.jpg",
+			"https://seeklogo.com/images/W/walmart-logo-E0D2232125-seeklogo.com.png",
 		imageAlt:
 			"Extra large black leather workspace pad on desk with computer, wooden shelf, desk organizer, and computer peripherals.",
 	},

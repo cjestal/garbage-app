@@ -14,6 +14,7 @@
 -->
 <template>
 	<div class="bg-white">
+		
 		<!-- Mobile menu -->
 		<TransitionRoot as="template" :show="mobileMenuOpen">
 			<Dialog
