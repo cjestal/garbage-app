@@ -240,9 +240,7 @@
       </Dialog>
     </TransitionRoot>
 
-    <header class="relative">
-    
-    </header>
+    <header class="relative"></header>
 
     <main
       class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:pb-32 sm:pt-24 lg:px-8"
@@ -252,8 +250,7 @@
           Your Recent Orders
         </h1>
         <p class="mt-2 text-sm text-gray-500">
-          Check the status of recent orders, manage returns, and discover
-          similar products.
+          Check the status of recent orders.
         </p>
       </div>
 
@@ -278,20 +275,6 @@
               <p class="text-sm font-medium text-gray-500">
                 {{ order.status }}
               </p>
-              <div class="flex text-sm font-medium">
-                <a
-                  :href="order.href"
-                  class="text-indigo-600 hover:text-indigo-500"
-                  >Manage order</a
-                >
-                <div class="ml-4 border-l border-gray-200 pl-4 sm:ml-6 sm:pl-6">
-                  <a
-                    :href="order.invoiceHref"
-                    class="text-indigo-600 hover:text-indigo-500"
-                    >View Invoice</a
-                  >
-                </div>
-              </div>
             </div>
           </div>
 
@@ -330,18 +313,16 @@
                 </div>
               </div>
               <div class="mt-6 space-y-4 sm:ml-6 sm:mt-0 sm:w-40 sm:flex-none">
-                <button
-                  type="button"
-                  class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-2.5 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-full sm:flex-grow-0"
+                <span
+                  v-if="product.status == 'redeemed'"
+                  class="inline-flex items-center rounded-full bg-red-100 px-2 py-1 text-xs font-medium text-red-700"
+                  >Redeemed</span
                 >
-                  Buy again
-                </button>
-                <button
-                  type="button"
-                  class="flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-2.5 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-full sm:flex-grow-0"
+                <span
+                  v-if="product.status == 'available'"
+                  class="inline-flex items-center rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700"
+                  >Available</span
                 >
-                  Shop similar
-                </button>
               </div>
             </div>
           </div>
@@ -360,88 +341,7 @@
         >
           <div
             class="grid grid-cols-1 gap-y-10 lg:col-span-2 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-0"
-          >
-            <div>
-              <h3 class="text-sm font-medium text-gray-900">Account</h3>
-              <ul role="list" class="mt-6 space-y-6">
-                <li
-                  v-for="item in footerNavigation.account"
-                  :key="item.name"
-                  class="text-sm"
-                >
-                  <a
-                    :href="item.href"
-                    class="text-gray-500 hover:text-gray-600"
-                    >{{ item.name }}</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="text-sm font-medium text-gray-900">Service</h3>
-              <ul role="list" class="mt-6 space-y-6">
-                <li
-                  v-for="item in footerNavigation.service"
-                  :key="item.name"
-                  class="text-sm"
-                >
-                  <a
-                    :href="item.href"
-                    class="text-gray-500 hover:text-gray-600"
-                    >{{ item.name }}</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div
-            class="grid grid-cols-1 gap-y-10 lg:col-span-2 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-0"
-          >
-            <div>
-              <h3 class="text-sm font-medium text-gray-900">Company</h3>
-              <ul role="list" class="mt-6 space-y-6">
-                <li
-                  v-for="item in footerNavigation.company"
-                  :key="item.name"
-                  class="text-sm"
-                >
-                  <a
-                    :href="item.href"
-                    class="text-gray-500 hover:text-gray-600"
-                    >{{ item.name }}</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="text-sm font-medium text-gray-900">Connect</h3>
-              <ul role="list" class="mt-6 space-y-6">
-                <li
-                  v-for="item in footerNavigation.connect"
-                  :key="item.name"
-                  class="text-sm"
-                >
-                  <a
-                    :href="item.href"
-                    class="text-gray-500 hover:text-gray-600"
-                    >{{ item.name }}</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="border-t border-gray-100 py-10 sm:flex sm:items-center sm:justify-between"
-        >
-          <div class="flex items-center justify-center text-sm text-gray-500">
-            <p>Shipping to Canada ($CAD)</p>
-            <p class="ml-3 border-l border-gray-200 pl-3">English</p>
-          </div>
-          <p class="mt-6 text-center text-sm text-gray-500 sm:mt-0">
-            &copy; 2021 Your Company, Inc.
-          </p>
+          ></div>
         </div>
       </div>
     </footer>
@@ -549,15 +449,14 @@ const orders = [
     products: [
       {
         id: 1,
-        name: "Machined Brass Puzzle",
+        name: "Focus Carry pounch",
         href: "#",
-        price: "$95.00",
-        color: "Brass",
-        size: '3" x 3" x 3"',
+        price: "⦵ 32",
+        size: "McDonalds",
+        status: "available",
         imageSrc:
-          "https://tailwindui.com/img/ecommerce-images/order-history-page-07-product-01.jpg",
-        imageAlt:
-          "Brass puzzle in the shape of a jack with overlapping rounded posts.",
+          "https://seeklogo.com/images/M/mcdonald-s-logo-255A7B5646-seeklogo.com.png",
+        imageAlt: "",
       },
       // More products...
     ],
@@ -571,15 +470,26 @@ const orders = [
     products: [
       {
         id: 1,
-        name: "Machined Brass Puzzle",
+        name: "Free coffee",
         href: "#",
-        price: "$95.00",
-        color: "Brass",
-        size: '3" x 3" x 3"',
+        price: "⦵ 64",
+        size: "Tim Hortons",
+		status: "redeemed",
         imageSrc:
-          "https://tailwindui.com/img/ecommerce-images/order-history-page-07-product-01.jpg",
+          "https://seeklogo.com/images/T/Tim_Hortons-logo-C043823AE9-seeklogo.com.png",
         imageAlt:
           "Brass puzzle in the shape of a jack with overlapping rounded posts.",
+      },
+      {
+        id: 1,
+        name: "Focus Carry pounch",
+        href: "#",
+        price: "⦵ 32",
+        size: "McDonalds",
+        status: "redeemed",
+        imageSrc:
+          "https://seeklogo.com/images/M/mcdonald-s-logo-255A7B5646-seeklogo.com.png",
+        imageAlt: "",
       },
       // More products...
     ],
@@ -593,48 +503,21 @@ const orders = [
     products: [
       {
         id: 1,
-        name: "Machined Brass Puzzle",
+        name: "20% off your next coffee",
         href: "#",
-        price: "$95.00",
-        color: "Brass",
-        size: '3" x 3" x 3"',
+        price: "⦵ 13",
+        size: "Starbucks",
+		status: "redeemed",
         imageSrc:
-          "https://tailwindui.com/img/ecommerce-images/order-history-page-07-product-01.jpg",
-        imageAlt:
-          "Brass puzzle in the shape of a jack with overlapping rounded posts.",
+          "https://seeklogo.com/images/S/STARBUCKS-logo-1C7F61A348-seeklogo.com.png",
+        imageAlt: "",
       },
       // More products...
     ],
   },
   // More orders...
 ];
-const footerNavigation = {
-  account: [
-    { name: "Manage Account", href: "#" },
-    { name: "Saved Items", href: "#" },
-    { name: "Orders", href: "#" },
-    { name: "Redeem Gift card", href: "#" },
-  ],
-  service: [
-    { name: "Shipping & Returns", href: "#" },
-    { name: "Warranty", href: "#" },
-    { name: "FAQ", href: "#" },
-    { name: "Find a store", href: "#" },
-    { name: "Get in touch", href: "#" },
-  ],
-  company: [
-    { name: "Who we are", href: "#" },
-    { name: "Press", href: "#" },
-    { name: "Careers", href: "#" },
-    { name: "Terms & Conditions", href: "#" },
-    { name: "Privacy", href: "#" },
-  ],
-  connect: [
-    { name: "Facebook", href: "#" },
-    { name: "Instagram", href: "#" },
-    { name: "Pinterest", href: "#" },
-  ],
-};
+const footerNavigation = {};
 
 const mobileMenuOpen = ref(false);
 </script>
