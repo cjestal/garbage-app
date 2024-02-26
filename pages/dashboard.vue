@@ -1,47 +1,60 @@
 <template>
 	<div>
-		<h1>Dashboard</h1>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-			Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies
-			sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a,
-			semper congue, euismod non, mi.
-		</p>
-		<br />
-		<p>
-			Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non
-			fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa,
-			scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut
-			in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.
-			Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque
-			sed dui ut augue blandit sodales.
-		</p>
-		<br />
-		<p>
-			Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-			cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque
-			fermentum. Maecenas adipiscing ante non diam sodales hendrerit. Ut velit
-			mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa
-			suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus
-			aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula.
-		</p>
-		<br />
-		<p>
-			Pellentesque habitant morbi tristique senectus et netus et malesuada fames
-			ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-			tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
-			Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
-			amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum
-			sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget
-			tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim
-			ac dui.
-		</p>
-		<br />
-		<p>
-			Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus,
-			neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna
-			eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan
-			porttitor, facilisis luctus, metus.
-		</p>
+		<dl
+			class="mx-auto grid grid-cols-1 gap-px bg-gray-900/5 sm:grid-cols-2 lg:grid-cols-4"
+		>
+			<div
+				v-for="stat in stats"
+				:key="stat.name"
+				class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-10 sm:px-6 xl:px-8"
+			>
+				<dt class="text-sm font-medium leading-6 text-gray-500">
+					{{ stat.name }}
+				</dt>
+				<dd
+					:class="[
+						stat.changeType === 'negative' ? 'text-rose-600' : 'text-gray-700',
+						'text-xs font-medium',
+					]"
+				>
+					<!-- {{ stat.change }} -->
+				</dd>
+				<dd
+					class="w-full flex-none text-3xl font-medium leading-10 tracking-tight text-gray-900"
+				>
+					{{ stat.value }}
+				</dd>
+			</div>
+		</dl>
 	</div>
 </template>
+
+<script setup>
+const stats = [
+	{
+		name: "Available Points",
+		value: "300",
+		change: "+1.39%",
+		changeType: "positive",
+	},
+	{
+		name: "Points Spent",
+		value: "30",
+		change: "+4.75%",
+		changeType: "positive",
+	},
+	{
+		name: "Garbage Submitted",
+		value: "50",
+		change: "+54.02%",
+		changeType: "negative",
+	},
+
+	{
+		name: "Expenses",
+		value: "$30,156.00",
+		change: "+10.18%",
+		changeType: "negative",
+	},
+];
+</script>

@@ -8,7 +8,7 @@
 	  ```
 	-->
 	<div class="min-h-full">
-		<div class="bg-gray-800 pb-32">
+		<div class="bg-green-700 pb-32">
 			<Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
 				<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 					<div class="border-b border-gray-700">
