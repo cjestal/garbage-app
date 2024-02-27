@@ -24,7 +24,9 @@
 												? 'bg-gray-900 text-white'
 												: 'text-gray-300 hover:bg-gray-700 hover:text-white',
 										]"
-										:aria-current="$route.path === item.href ? 'page' : undefined"
+										:aria-current="
+											$route.path === item.href ? 'page' : undefined
+										"
 										>{{ item.name }}</router-link
 									>
 								</div>
@@ -176,14 +178,10 @@
 							>{{ item.name }}</a
 						>
 					</div>
-					<!-- <a
-						href="#"
-						class="ml-auto flex items-center gap-x-1 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-					>
-						<QrCodeIcon class="-ml-1.5 h-5 w-5" aria-hidden="true" />
-						QR Code
-					</a> -->
-                    <Qrmodal class="ml-auto" />
+					<div class="flex gap-3">
+						<Qrmodal class="ml-auto" />
+						<QrReadermodal />
+					</div>
 				</div>
 			</div>
 		</header>
@@ -219,7 +217,6 @@ const navigation = [
 	{ name: "Rewards", href: "/rewards", current: false },
 	{ name: "My Rewards", href: "/my-rewards", current: false },
 	{ name: "Coins", href: "/coins", current: false },
-	
 ];
 const userNavigation = [
 	{ name: "Your Profile", href: "#" },

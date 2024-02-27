@@ -14,13 +14,10 @@
 		</template>
 		<template #body>
 			<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-				Present this QR code to the store to earn points!
+				Scan QR to give points to the customer!
 			</p>
 
-			<fwb-img
-				alt="flowbite-vue"
-				src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1920px-QR_code_for_mobile_English_Wikipedia.svg.png"
-			/>
+			<QrcodeStream />
 		</template>
 		<template #footer>
 			<div class="flex justify-end">
@@ -31,6 +28,7 @@
 </template>
 
 <script lang="ts" setup>
+import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
 import { ref } from "vue";
 import { FwbButton, FwbModal, FwbImg } from "flowbite-vue";
 import { QrCodeIcon } from "@heroicons/vue/24/outline";

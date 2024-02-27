@@ -1,6 +1,11 @@
 <template>
-	<div>
-		<h2 class="mb-6">Available Rewards</h2>
+	<div class="flex flex-col gap-6">
+		<div class="flex justify-between">
+			<h2>Available Rewards</h2>
+			<router-link to="/my-rewards" class="text-green-600"
+				>Show All</router-link
+			>
+		</div>
 
 		<div class="flex flex-col gap-4 md:flex-row md:gap-4">
 			<fwb-card
