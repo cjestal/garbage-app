@@ -1,4 +1,5 @@
 <template>
+	<!-- {{ localStorage.getItem("userType") }} -->
 	<div v-if="userType === 'admin'" class="flex flex-col gap-6">
 		<DataDisplay />
 		<PointsHistory />
@@ -19,4 +20,5 @@
 import { ref } from "vue";
 
 const userType = ref("store");
+userType.value = localStorage.getItem("userType");
 </script>

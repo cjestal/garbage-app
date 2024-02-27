@@ -84,13 +84,30 @@
 					</div>
 				</div>
 
-				<div>
+				<div class="flex flex-col gap-2">
 					<button
 						type="submit"
 						class="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+						@click="loginAsUser()"
 					>
 						Sign in
 					</button>
+					<div class="flex gap-2">
+						<button
+							type="button"
+							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+							@click="loginAsStore()"
+						>
+							Login as Store
+						</button>
+						<button
+							type="button"
+							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+							@click="loginAsAdmin()"
+						>
+							Login as Admin
+						</button>
+					</div>
 				</div>
 			</form>
 
@@ -106,3 +123,25 @@
 		</div>
 	</div>
 </template>
+
+<script setup>
+
+onMounted(() => {
+  localStorage.removeItem("userType");
+})
+
+const loginAsStore = () => {
+	localStorage.setItem("userType", "store");
+	navigateTo("/dashboard");
+};
+
+const loginAsAdmin = () => {
+	localStorage.setItem("userType", "admin");
+	navigateTo("/dashboard");
+};
+
+const loginAsUser = () => {
+	localStorage.setItem("userType", "user");
+	navigateTo("/dashboard");
+};
+</script>

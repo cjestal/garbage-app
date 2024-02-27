@@ -179,8 +179,8 @@
 						>
 					</div>
 					<div class="flex gap-3">
-						<Qrmodal class="ml-auto" />
-						<QrReadermodal />
+						<Qrmodal v-if="userType === 'user'" class="ml-auto" />
+						<QrReadermodal v-if="userType === 'store'" />
 					</div>
 				</div>
 			</div>
@@ -189,6 +189,10 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+
+const userType = ref("store");
+userType.value = localStorage.getItem("userType");
 import {
 	Disclosure,
 	DisclosureButton,
@@ -221,6 +225,6 @@ const navigation = [
 const userNavigation = [
 	{ name: "Your Profile", href: "#" },
 	{ name: "Settings", href: "#" },
-	{ name: "Sign out", href: "#" },
+	{ name: "Sign out", href: "/login" },
 ];
 </script>

@@ -1,5 +1,5 @@
 <template>
-	<div v-if="$route.path == '/login'">
+	<div v-if="$route.path == '/login/'">
 		<NuxtPage />
 	</div>
 	<div v-else class="min-h-full">
