@@ -4,7 +4,7 @@
 		class="rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
 	>
 		<span class="flex gap-2">
-			<QrCodeIcon class="-ml-1.5 h-5 w-5" aria-hidden="true" /> QR Code
+			<QrCodeIcon class="-ml-1.5 h-5 w-5" aria-hidden="true" /> Scan QR Code
 		</span>
 	</button>
 

@@ -5,7 +5,7 @@
 				Use your coins!
 			</h1>
 			<p class="mx-auto mt-4 max-w-3xl text-base text-gray-500">
-				Congratulations on your coins ⦵. Now use it to get some cool stuff!
+				Congratulations on your coins <span class="text-green-600 font-extrabold"> ⦵ </span>. Now use it to get some cool stuff!
 			</p>
 		</div>
 		<section aria-labelledby="products-heading" class="mt-8">

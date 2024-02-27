@@ -1,6 +1,11 @@
 <template>
 	<div>
-		<h2>Recent History</h2>
+		<div class="flex justify-between">
+			<h2>Recent History</h2>
+
+			<router-link to="/coins" class="text-green-600">Show All</router-link>
+			
+		</div>
 		<br />
 		<div class="flow-root">
 			<ul role="list" class="-mb-8">
@@ -58,6 +63,36 @@ import {
 } from "@heroicons/vue/20/solid";
 
 const timeline = [
+	{
+		id: 4,
+		content: "Earned 5 Points from Tim Hortons",
+		target: "Tim Hortons",
+		href: "#",
+		date: "Sep 30",
+		datetime: "2020-09-30",
+		icon: PlusIcon,
+		iconBackground: "bg-green-500",
+	},
+	{
+		id: 5,
+		content: "Spent points on Winners -$20 Gift Certificate",
+		target: "Winners",
+		href: "#",
+		date: "Oct 4",
+		datetime: "2020-10-04",
+		icon: ShoppingCartIcon,
+		iconBackground: "bg-purple-500",
+	},
+	{
+		id: 5,
+		content: "Spent points on Winners -$20 Gift Certificate",
+		target: "Winners",
+		href: "#",
+		date: "Oct 4",
+		datetime: "2020-10-04",
+		icon: ShoppingCartIcon,
+		iconBackground: "bg-purple-500",
+	},
 	{
 		id: 4,
 		content: "Earned 5 Points from Tim Hortons",

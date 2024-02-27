@@ -1,12 +1,9 @@
 <template>
-	<div>
+	<div class="flex flex-col gap-6">
 		<DataDisplay />
-    <br />
 		<PointsHistory />
+		<RewardsCards />
 	</div>
 </template>
 
-<script setup>
-
-
-</script>
+<script setup></script>

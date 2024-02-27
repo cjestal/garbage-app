@@ -163,7 +163,7 @@
 					class="mx-auto flex max-w-7xl flex-wrap items-center gap-6 sm:flex-nowrap justify-between"
 				>
 					<h1 class="text-3xl font-bold tracking-tight text-white">
-						Dashboard
+						{{ $route.name }}
 					</h1>
 					<div
 						class="order-last flex w-full gap-x-8 text-sm font-semibold leading-6 sm:order-none sm:w-auto sm:border-l sm:border-gray-200 sm:pl-6 sm:leading-7"
@@ -218,7 +218,7 @@ const navigation = [
 	{ name: "Dashboard", href: "/dashboard", current: true },
 	{ name: "Rewards", href: "/rewards", current: false },
 	{ name: "My Rewards", href: "/my-rewards", current: false },
-	{ name: "Points", href: "/points", current: false },
+	{ name: "Coins", href: "/coins", current: false },
 	
 ];
 const userNavigation = [
