@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="w-full">
 		<div class="flex justify-between">
 			<h2>Recent History</h2>
 

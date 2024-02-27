@@ -24,8 +24,12 @@
 </template>
 <script setup>
 const stats = [
-	{ name: "Current Coins", stat: "⦵ 7,897", color: "bg-red-300" },
-	{ name: "Total Coins Earned", stat: "⦵ 516", color: "bg-blue-300" },
-	{ name: "Garbage Collected", stat: "240 pieces", color: "bg-green-300" },
+	{ name: "Total Coins Granted", stat: "⦵ 5,300,450", color: "bg-red-300" },
+	{ name: "Total Rewards Redeemed", stat: "480,000", color: "bg-blue-300" },
+	{
+		name: "Total Garbage Collected",
+		stat: "2,340,328 pieces",
+		color: "bg-green-300",
+	},
 ];
 </script>

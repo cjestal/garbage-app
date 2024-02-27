@@ -1,15 +1,15 @@
 <template>
 	<!-- {{ localStorage.getItem("userType") }} -->
-	<div v-if="userType === 'admin'" class="flex flex-col gap-6">
-		<DataDisplay />
-		<PointsHistory />
-		<RewardsCards />
+	<div v-if="userType === 'admin'" class="flex flex-col gap-10">
+		<AdminDataDisplay />
+		<BarChart />
+		<LineChart />
 	</div>
-	<div v-if="userType === 'store'" class="flex flex-col gap-6">
+	<div v-if="userType === 'store'" class="flex flex-col gap-10">
 		<StoreDataDisplay />
 		<StorePointsHistory />
 	</div>
-	<div v-else class="flex flex-col gap-6">
+	<div v-if="userType === 'user'" class="flex flex-col gap-10">
 		<DataDisplay />
 		<PointsHistory />
 		<RewardsCards />
@@ -20,5 +20,6 @@
 import { ref } from "vue";
 
 const userType = ref("store");
+
 userType.value = localStorage.getItem("userType");
 </script>
