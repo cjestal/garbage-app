@@ -474,11 +474,10 @@ const orders = [
         href: "#",
         price: "⦵ 64",
         size: "Tim Hortons",
-		status: "redeemed",
+        status: "redeemed",
         imageSrc:
           "https://seeklogo.com/images/T/Tim_Hortons-logo-C043823AE9-seeklogo.com.png",
-        imageAlt:
-          "Brass puzzle in the shape of a jack with overlapping rounded posts.",
+        imageAlt: "",
       },
       {
         id: 1,
@@ -497,7 +496,7 @@ const orders = [
   {
     // third order
     number: "35783",
-    status: "Delivered on september 22, 2023",
+    status: "Purchased on september 22, 2023",
     href: "#",
     invoiceHref: "#",
     products: [
@@ -507,7 +506,7 @@ const orders = [
         href: "#",
         price: "⦵ 13",
         size: "Starbucks",
-		status: "redeemed",
+        status: "redeemed",
         imageSrc:
           "https://seeklogo.com/images/S/STARBUCKS-logo-1C7F61A348-seeklogo.com.png",
         imageAlt: "",
